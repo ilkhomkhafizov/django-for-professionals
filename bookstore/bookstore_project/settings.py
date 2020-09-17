@@ -144,6 +144,8 @@ AUTHENTICATION_BACKENDS = (
 # Configure for email output in console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+DEFAULT_FROM_EMAIL = 'admin@ilkhomkhafizov.com'
+
 # Register Custom User model
 AUTH_USER_MODEL = 'users.CustomUser'
 
