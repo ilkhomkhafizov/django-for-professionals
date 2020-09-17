@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
 
     'crispy_forms',
+    'allauth',
+    'allauth.account',
 
 
     'users.apps.UsersConfig',
@@ -114,14 +117,41 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Django-allauth config
+
+SITE_ID = 1 
+
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+# Remember me on login page | default True 
+ACCOUNT_SESSION_REMEMBER = True
+
+# Конфугурации для того,чтобы сделать email unique и ключ при регистрации
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True 
+
+
+# Delete Password again input 
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# Configure for email output in console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Register Custom User model
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Redirect after success login
-LOGIN_REDIRECT_URL = 'home'
+# LOGIN_REDIRECT_URL = 'home'
 
 # Redirect after success logout
-LOGOUT_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -135,8 +165,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
 
 
 # Template for django-crispy-forms
