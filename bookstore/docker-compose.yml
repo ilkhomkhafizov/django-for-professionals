@@ -8,6 +8,8 @@ services:
         environment: 
             - SECRET_KEY=o)bs(jkjsjh4qtq5f(#^f9#@-^b!1u9k1qq@+kuovclk-44xt6
             - DEBUG=1
+            - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_J8a1Vc4zClWwtOZIHFbIH7WO00t71bZmHe
+            - STRIPE_TEST_SECRET_KEY=sk_test_NLUBdPxcrFJH0MssM1oGvdgZ0063DzF35j
         volumes: 
             - .:/dfp
         ports: 
