@@ -21,7 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     
     #d Django Admin
-    path('admin/', admin.site.urls),
+    path('bookstore-admin-manager/', admin.site.urls),
     # path('accounts/', include('django.contrib.auth.urls')),
     # path('accounts/', include('users.urls')),
     
