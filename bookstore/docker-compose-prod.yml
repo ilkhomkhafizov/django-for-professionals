@@ -4,7 +4,8 @@ version: '3.8'
 services: 
     web:
         build: .
-        command: python /dfp/manage.py runserver 0.0.0.0:8000
+        # command: python /dfp/manage.py runserver 0.0.0.0:8000
+        command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000
         environment:
             - ENVIRONMENT=production
             - SECRET_KEY=o)bs(jkjsjh4qtq5f(#^f9#@-^b!1u9k1qq@+kuovclk-44xt6
